@@ -1,6 +1,6 @@
 # solana-transfer
 
-example of transferring lamports (SOL) between accounts
+example of transferring lamports (SOL) in solana (rust )between accounts
 
 ### Creating the example keypairs:
 
@@ -8,20 +8,20 @@ example of transferring lamports (SOL) between accounts
 
 solana-keygen new --no-bip39-passphrase -o accounts/john.json
 
-solana-keygen new --no-bip39-passphrase -o transfer-sol/accounts/ringo.json
+solana-keygen new --no-bip39-passphrase -o transfer-sol/accounts/john.json
 ```
 
 ### Viewing their public keys:
 
 ```shell
-solana-keygen pubkey transfer-sol/accounts/george.json
+solana-keygen pubkey transfer-sol/accounts/{NAME}.json
 ```
 
 ```shell
-Ringo:      3c5di8sz3rkag4LBLpjMxiMo7fAnPDMuyRQB6o4L4G1r
-George:     FmLBYcNq1PYHsrtBVK4byrwjeqYtTFtLL6GjvYy4fpCM
-Paul:       2dw4Ff2P9NfNqL2eCCMKmh4wNunhsvzNTGxMZJEVHtSA
-John:       2AXzcKA3cXr1SMmGESTkP8pqx232njXQBCJJPJCb9vfJ
+John:       BH8inGCcofjmLrxMagvvuHtMjGgPWK54LdxMKtXvsVW6
+Marry:      C3pvdsrU6YFHHDJNadWZuyDE3c6RspqedRB88LRT1NXk
+Bob:        AWpuLDvrdroyM5jLEozy3zBq2mtxkPuXCNyFykhvKhHs
+Alice:      4DVKqeYiGUcaQBhg11m7s2jKsbdosEapLv99Zj5yv52D
 ```
 
 ### Airdropping:
@@ -34,6 +34,8 @@ solana airdrop --keypair transfer-sol/accounts/john.json 2
 
 ```shell
 solana account <pubkey>
+
+solana program show --programs 
 ```
 
 ## Run the example:

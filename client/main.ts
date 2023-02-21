@@ -26,9 +26,9 @@ let connection: Connection;
 let programKeypair: Keypair;
 let programId: PublicKey;
 
-let ringoKeypair: Keypair;
-let georgeKeypair: Keypair;
-let paulKeypair: Keypair;
+let aliceKeypair: Keypair;
+let bobKeypair: Keypair;
+let marryKeypair: Keypair;
 let johnKeypair: Keypair;
 
 
@@ -92,12 +92,12 @@ async function main() {
     programId = programKeypair.publicKey;
 
     // Our sample members are Ringo, George, Paul & John.
-    ringoKeypair = createKeypairFromFile(__dirname + "/../accounts/ringo.json");
-    georgeKeypair = createKeypairFromFile(__dirname + "/../accounts/george.json");
-    paulKeypair = createKeypairFromFile(__dirname + "/../accounts/paul.json");
+    bobKeypair = createKeypairFromFile(__dirname + "/../accounts/bob.json");
+    marryKeypair = createKeypairFromFile(__dirname + "/../accounts/marry.json");
+    aliceKeypair = createKeypairFromFile(__dirname + "/../accounts/alice.json");
     johnKeypair = createKeypairFromFile(__dirname + "/../accounts/john.json");
     
-    // We'll start by airdropping some lamports to Paul & John.
+    // airdropping
     // await connection.confirmTransaction(
     //     await connection.requestAirdrop(
     //         paulKeypair.publicKey,
@@ -111,23 +111,23 @@ async function main() {
     //     )
     // );
 
-    // John sends some SOL to Ringo.
-    console.log("John sends some SOL to Ringo...");
+    // John sends some SOL to Bob.
+    console.log("John sends some SOL to Bob...");
     console.log(`   John's public key: ${johnKeypair.publicKey}`);
-    console.log(`   Ringo's public key: ${ringoKeypair.publicKey}`);
-    await sendLamports(johnKeypair, ringoKeypair.publicKey, 5000000);
+    console.log(`   Bob's public key: ${bobKeypair.publicKey}`);
+    await sendLamports(johnKeypair, bobKeypair.publicKey, 5000000);
 
-    // Paul sends some SOL to George.
-    console.log("Paul sends some SOL to George...");
-    console.log(`   Paul's public key: ${paulKeypair.publicKey}`);
-    console.log(`   George's public key: ${georgeKeypair.publicKey}`);
-    await sendLamports(paulKeypair, georgeKeypair.publicKey, 4000000);
+    // Marry sends some SOL to Alice.
+    console.log("Marry sends some SOL to Alice...");
+    console.log(`   Marry's public key: ${marryKeypair.publicKey}`);
+    console.log(`   Alice's public key: ${aliceKeypair.publicKey}`);
+    await sendLamports(marryKeypair, aliceKeypair.publicKey, 4000000);
 
-    // George sends some SOL over to John.
-    console.log("George sends some SOL over to John...");
-    console.log(`   George's public key: ${georgeKeypair.publicKey}`);
+    // Alice sends some SOL over to John.
+    console.log("Bob sends some SOL over to John...");
+    console.log(`   Alice's public key: ${aliceKeypair.publicKey}`);
     console.log(`   John's public key: ${johnKeypair.publicKey}`);
-    await sendLamports(georgeKeypair, johnKeypair.publicKey, 2000000);
+    await sendLamports(aliceKeypair, johnKeypair.publicKey, 2000000);
 }
 
 
