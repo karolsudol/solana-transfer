@@ -5,6 +5,9 @@ example of transferring lamports (SOL) between accounts
 ### Creating the example keypairs:
 
 ```shell
+
+solana-keygen new --no-bip39-passphrase -o accounts/john.json
+
 solana-keygen new --no-bip39-passphrase -o transfer-sol/accounts/ringo.json
 ```
 
